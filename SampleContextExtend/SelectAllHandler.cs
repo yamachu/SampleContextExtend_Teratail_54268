@@ -2,6 +2,7 @@
 using MonoDevelop.Ide;
 using MonoDevelop.Ide.Gui;
 using System;
+using MonoDevelop.Ide.Editor.Extension;
 
 namespace SampleContextExtend
 {
@@ -14,7 +15,6 @@ namespace SampleContextExtend
 
 		protected override void Update(CommandInfo info)
 		{
-			info.Visible = true;
 			info.Enabled = true;
 		}
 	}
