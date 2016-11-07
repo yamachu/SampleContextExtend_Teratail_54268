@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+    <Extension path="/MonoDevelop/Ide/Commands">
+        <Command
+            id="SampleContextExtend.SampleCommands.SelectAll"
+            _label="Select All"
+            defaultHandler="SampleContextExtend.SelectAllHandler" />
+    </Extension>
+
+    <!-- https://forums.xamarin.com/discussion/38464/xamarin-studio-add-in-for-source-editor
+         を見る感じ ContextMenu への追加はこのPathを指定しそう -->
+    <Extension path="/MonoDevelop/SourceEditor2/ContextMenu/Editor">
+        <Condition id="FileType" fileExtensions=".cs">
+        <!-- 挿入箇所を指定する必要があるのかと思い（githubでAddinを提供しているものは概ねついていた）付与してみたが変わらず -->
+        <CommandItem
+            id="SampleContextExtend.SampleCommands.SelectAll"
+            insertafter="MonoDevelop.SourceEditor.SourceEditorCommands.MarkerOperations"/>
+    	</Condition>
+    </Extension>
+    <!-- 正しく動作が確認できている DocumentTab への追加や ProjectPad への追加，
+         MainMenu/Edit への追加は不要と感じ除外 -->
+    <Extension path="/MonoDevelop/Ide/ContextMenu/DocumentTab">
+        <CommandItem
+            id="SampleContextExtend.SampleCommands.SelectAll" />
+    </Extension>
+    <Extension path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+        <CommandItem
+            id="SampleContextExtend.SampleCommands.SelectAll" />
+    </Extension>
+</ExtensionModel>
